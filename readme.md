@@ -54,7 +54,7 @@ The file `config/database.py` reads these values. Scripts will fail if `DB_PASSW
 2. **Transform**: Executes SQL scripts to clean, normalize, and insert data into the processed layer (`transform.py`).
 3. **Load**: Aggregates processed data into final reporting tables for business consumption (`load.py`).
 
-## How to Run (Minimal)
+## How to Run 
 1. **Prerequisites**: Ensure PostgreSQL is running and a database (default: `relational_data_processing`) exists.
 2. **Setup**:
    ```bash
@@ -72,12 +72,3 @@ The file `config/database.py` reads these values. Scripts will fail if `DB_PASSW
    python scripts/load.py
    ```
 
-## Resume Alignment
-- **Python**: Backend orchestration, file handling, DB connectivity.
-- **SQL**: Complex joins, window functions, aggregations, DDL/DML.
-- **PostgreSQL**: Schema design, constraints, indexing, transactions.
-- **ETL Processes**: End-to-end pipeline design (Extract -> Transform -> Load).
-- **Data Ingestion**: Bulk loading structured data from files.
-- **Data Transformation**: Cleaning and normalizing raw data into 3NF.
-- **Backend Development**: Modular script architecture.
-- **DBMS**: Relational modeling and integrity enforcement.
