@@ -8,6 +8,47 @@ This project validates core Data Engineering fundamentals by building a robust, 
 - PostgreSQL
 - SQL
 
+## Database Setup (PostgreSQL)
+### Step 1: Install PostgreSQL
+Ensure PostgreSQL is installed locally. Do not hardcode credentials in scripts.
+
+### Step 2: Create Database
+Run the following SQL logic (e.g., via pgAdmin or psql):
+```sql
+CREATE DATABASE relational_data_processing;
+```
+
+### Step 3: Create PostgreSQL User (Optional)
+You may use the default `postgres` user or create a dedicated one:
+```sql
+CREATE USER data_engineer WITH PASSWORD 'your_password';
+GRANT ALL PRIVILEGES ON DATABASE relational_data_processing TO data_engineer;
+```
+
+### Step 4: Set Environment Variables
+The application strictly reads credentials from environment variables.
+
+**Windows (PowerShell):**
+```powershell
+setx DB_NAME relational_data_processing
+setx DB_USER postgres
+setx DB_PASSWORD your_password
+setx DB_HOST localhost
+setx DB_PORT 5432
+```
+
+**Linux/macOS:**
+```bash
+export DB_NAME=relational_data_processing
+export DB_USER=postgres
+export DB_PASSWORD=your_password
+export DB_HOST=localhost
+export DB_PORT=5432
+```
+
+### Step 5: Verification
+The file `config/database.py` reads these values. Scripts will fail if `DB_PASSWORD` is not set.
+
 ## Architecture Overview
 - **Raw Layer**: Immutable staging area where CSVs are ingested directly without modification.
 - **Processed Layer**: 3NF normalized schema enforcing Primary/Foreign Key constraints and correct data types.
