@@ -23,8 +23,10 @@ def get_db_connection():
     db_pass = os.getenv("DB_PASS")
     
     if not db_pass:
-        logger.warning("DB_PASS not set. Defaulting to dev credentials.")
-        db_pass = "admin123"
+        # Provide credentials via environment variables.
+        error_msg = "DB_PASS environment variable is missing. Connection refused."
+        logger.error(error_msg)
+        raise ValueError(error_msg)
 
     try:
         conn = psycopg2.connect(
