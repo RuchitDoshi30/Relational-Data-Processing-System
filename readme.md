@@ -25,26 +25,19 @@ CREATE USER data_engineer WITH PASSWORD 'your_password';
 GRANT ALL PRIVILEGES ON DATABASE relational_data_processing TO data_engineer;
 ```
 
-### Step 4: Set Environment Variables
-The application strictly reads credentials from environment variables.
+### Step 4: Configure Credentials (.env)
+Create a file named `.env` in the root directory (this file is ignored by git).
+Add your PostgreSQL credentials:
 
-**Windows (PowerShell):**
-```powershell
-setx DB_NAME relational_data_processing
-setx DB_USER postgres
-setx DB_PASSWORD your_password
-setx DB_HOST localhost
-setx DB_PORT 5432
+```ini
+DB_NAME=relational_data_processing
+DB_USER=postgres
+DB_PASSWORD=your_password
+DB_HOST=localhost
+DB_PORT=5432
 ```
 
-**Linux/macOS:**
-```bash
-export DB_NAME=relational_data_processing
-export DB_USER=postgres
-export DB_PASSWORD=your_password
-export DB_HOST=localhost
-export DB_PORT=5432
-```
+Alternatively, you can set system-level environment variables.
 
 ### Step 5: Verification
 The file `config/database.py` reads these values. Scripts will fail if `DB_PASSWORD` is not set.
