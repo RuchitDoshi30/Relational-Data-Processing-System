@@ -1,6 +1,6 @@
 # Relational Data Processing System (PostgreSQL)
 
-## One-Paragraph Overview
+## Overview
 This project validates core Data Engineering fundamentals by building a robust, local ETL pipeline that processes transactional business data. It demonstrates the ability to enforce strict data integrity using PostgreSQL 3NF schemas, orchestrate independent extraction/loading steps via Python, and perform complex data transformations using raw SQL logic rather than relying on abstraction frameworks.
 
 ## Tech Stack
