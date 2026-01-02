@@ -49,7 +49,7 @@ The file `config/database.py` reads these values. Scripts will fail if `DB_PASSW
 - **Why PostgreSQL?**: Chosen for MVCC concurrency control, ACID compliance, and rich SQL support necessary for complex joins.
 - **Why SQL?**: Transformations are pushed to the database engine to leverage set-based processing efficiency over row-based scripting.
 
-## ETL Workflow (High Level)
+## ETL Workflow
 1. **Extract**: Reads structured CSV data and loads it into raw database tables (`ingest.py`).
 2. **Transform**: Executes SQL scripts to clean, normalize, and insert data into the processed layer (`transform.py`).
 3. **Load**: Aggregates processed data into final reporting tables for business consumption (`load.py`).
